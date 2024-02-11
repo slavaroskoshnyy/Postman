@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "380e2154-d6bc-4018-a9ae-0dbcb48c6be0",
+		"name": "chatapp.online",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30451170"
+	},
+	"item": [
+		{
+			"name": "tokens",
+			"item": [
+				{
+					"name": "v1.tokens.make",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"appId\": \"{{appId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}v1/tokens",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1.tokens.refresh",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Refresh",
+								"value": "b3118c656b04e7df8e86eb917b6b2d988e156d87c35dca307aac11113712575c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/tokens/refresh",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"tokens",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1.tokens.check",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "10d5c21c48c4095c24b06cbfd95e4e29e1d0901bf6c02564155b76e0b5ba809d",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/tokens/check",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"tokens",
+								"check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "licenses",
+			"item": [
+				{
+					"name": "v1.licenses.get.items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "029b366b4edcc0dcab12a29ffd5bff7d41438b1b5fb0e250590de4cc06fc52bb",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/licenses",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1.licenses.storage.edit",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "029b366b4edcc0dcab12a29ffd5bff7d41438b1b5fb0e250590de4cc06fc52bb",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"storage\": 38838\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}v1/licenses/{{licenseId}}/storage",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"storage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messengers",
+			"item": [
+				{
+					"name": "v1.messengers.get.balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "fe99a3062236b25f05f1d3e7346f32ede3bb727d80a87f5b2573d137f9b61c78",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/licenses/{{licenseId}}/messengers/{{messengerType}}/balance",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"messengers",
+								"{{messengerType}}",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1.messengers.get.balanceConversations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "fe99a3062236b25f05f1d3e7346f32ede3bb727d80a87f5b2573d137f9b61c78",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/licenses/{{licenseId}}/messengers/{{messengerType}}/balanceConversations",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"messengers",
+								"{{messengerType}}",
+								"balanceConversations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "v1.messengers.get.balanceMessages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "fe99a3062236b25f05f1d3e7346f32ede3bb727d80a87f5b2573d137f9b61c78",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/licenses/{{licenseId}}/messengers/{{messengerType}}/balanceMessages",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"messengers",
+								"{{messengerType}}",
+								"balanceMessages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "apps",
+			"item": [
+				{
+					"name": "v1.apps.msbot.trainQuickResponses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "fe99a3062236b25f05f1d3e7346f32ede3bb727d80a87f5b2573d137f9b61c78",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/licenses/{{licenseId}}/apps/msbot/trainQuickResponses",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"apps",
+								"msbot",
+								"trainQuickResponses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "v1.messages.send.text",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "319324f6490cd93da616d92629faf957d04a6d0115b18c4b8295c628ed63fa99",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\": \"Тестовое задание выполнено\"\r\n    // \"firstName\": \"quas\",\r\n    // \"lastName\": \"soluta\",\r\n    // \"tracking\": \"qui\",\r\n    // \"sender\": \"employee\",\r\n    // \"companyId\": 1,\r\n    // \"quotedMessageId\": \"B2CD23332\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v1/licenses/{{licenseId}}/messengers/{{messengerType}}/chats/{{chatId}}/messages/text",
+							"host": [
+								"v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"messengers",
+								"{{messengerType}}",
+								"chats",
+								"{{chatId}}",
+								"messages",
+								"text"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "tv1.users.check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v1/licenses/{{licenseId}}/messengers/{{messengerType}}/users/{{userName}}/check",
+							"host": [
+								"v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"messengers",
+								"{{messengerType}}",
+								"users",
+								"{{userName}}",
+								"check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "settings",
+			"item": [
+				{
+					"name": "v1.settings.chats.get.items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "319324f6490cd93da616d92629faf957d04a6d0115b18c4b8295c628ed63fa99",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}v1/licenses/{{licenseId}}/messengers/{{messengerType}}/settings/chats",
+							"host": [
+								"{{url}}v1"
+							],
+							"path": [
+								"licenses",
+								"{{licenseId}}",
+								"messengers",
+								"{{messengerType}}",
+								"settings",
+								"chats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "appId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "licenseId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "messengerType",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

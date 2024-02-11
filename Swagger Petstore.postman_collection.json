@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "b6d71c01-6d72-4642-bfb3-203741036519",
+		"name": "Swagger Petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30451170"
+	},
+	"item": [
+		{
+			"name": "Everything about your Pets",
+			"item": [
+				{
+					"name": "Find pet by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}pet/1",
+							"host": [
+								"{{url}}pet"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new pet to the store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}pet",
+							"host": [
+								"{{url}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploads an image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pet/1/uploadImage?petld=1&additionalMetadata",
+							"host": [
+								"{{url}}pet"
+							],
+							"path": [
+								"1",
+								"uploadImage"
+							],
+							"query": [
+								{
+									"key": "petld",
+									"value": "1",
+									"description": "integer (pafh)"
+								},
+								{
+									"key": "additionalMetadata",
+									"value": null,
+									"description": "string (formData)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pers by status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}pet/findByStatus?status=pending",
+							"host": [
+								"{{url}}pet"
+							],
+							"path": [
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates a pet in the store with form data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "petId ",
+									"value": "1",
+									"description": "integer($int64)\n(path)"
+								},
+								{
+									"key": "name",
+									"value": "doggie",
+									"description": "string\n(formData)"
+								},
+								{
+									"key": "status",
+									"value": "available"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}pet/1",
+							"host": [
+								"{{url}}pet"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "api_key",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "petld",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}pet/1",
+							"host": [
+								"{{url}}pet"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Access to Petstore orders",
+			"item": []
+		},
+		{
+			"name": "Operations about user",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.collectionVariables.set(\"url\", \"https://petstore.swagger.io/v2/\");"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": ""
+		}
+	]
+}
